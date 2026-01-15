@@ -1,0 +1,171 @@
+/* Base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #fff;
+  background: #0b7f2d;
+}
+
+/* Fondo “brillitos” (sin imágenes externas) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .55;
+  background-image:
+    radial-gradient(circle, rgba(255,255,170,.9) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.8) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,200,.6) 0 1px, transparent 2px);
+  background-size: 120px 120px, 180px 180px, 260px 260px;
+  background-position: 0 0, 40px 70px, 120px 30px;
+}
+
+/* Layout */
+.wrap{
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 18px 60px;
+}
+
+/* Títulos estilo “retro” */
+.hero{
+  text-align: center;
+  padding-top: 6px;
+}
+h1{
+  margin: 12px 0 6px;
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+h2{
+  margin: 0 0 18px;
+  font-size: clamp(20px, 3vw, 34px);
+  font-weight: 400;
+  color: #ffe56a;
+  text-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+
+/* Foto principal con marco */
+.main-photo{
+  margin: 14px auto 18px;
+  width: min(360px, 88vw);
+  border: 7px solid #ffe56a;
+  padding: 8px;
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.main-photo img{
+  display:block;
+  width: 100%;
+  height: auto;
+}
+
+/* 3 mini fotos */
+.thumbs{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto 26px;
+  padding: 0 6px;
+}
+.thumbs img{
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+/* Caja de texto tipo carta */
+.letter{
+  background: #fff;
+  color: #111;
+  border: 6px solid #0a5f27;
+  padding: 22px 20px;
+  max-width: 860px;
+  margin: 0 auto 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+.letter p{
+  margin: 12px 0;
+  line-height: 1.5;
+  font-size: 18px;
+}
+.letter .intro{
+  font-style: italic;
+}
+.sign{
+  margin-top: 18px;
+  text-align: right;
+  font-style: italic;
+}
+.sign span{
+  font-weight: 700;
+}
+
+/* Botones */
+.buttons{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border: 2px solid #0a5f27;
+  background: #ffe56a;
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn:hover{ filter: brightness(0.95); }
+.btn.secondary{
+  background: #e7e7e7;
+}
+
+/* Sección ayuda */
+.help{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  background: rgba(0,0,0,.12);
+  border: 2px solid rgba(255,255,255,.35);
+}
+.help h3{
+  margin: 10px 0 8px;
+  font-size: 22px;
+  color: #ffe56a;
+  font-weight: 700;
+}
+.help ul{
+  margin: 10px 0 10px 20px;
+  padding: 0;
+}
+.help li{ margin: 8px 0; }
+.tiny{
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: .9;
+}
+
+/* Footer */
+.foot{
+  text-align: center;
+  margin-top: 22px;
+  opacity: .9;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 640px){
+  .thumbs{ grid-template-columns: 1fr; max-width: 360px; }
+}
